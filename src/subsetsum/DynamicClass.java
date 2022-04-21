@@ -3,19 +3,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package subsetsum;
+
+import java.util.Arrays;
+
 /**
  *
  * @author Sharon
  */
 class DynamicSum {
 
-    static int maxSum = 30000;
-    static int arrSize = 25000;
+    static int maxSum = 0;
+    static int arrSize = 0;
 
     // variable to store
     // states of dp
-    static int[][] dp = new int[arrSize][maxSum];
-    static boolean[][] visit = new boolean[arrSize][maxSum];
+    static int[][] dp; 
+    static boolean[][] visit; 
+    
+    public static int metodo(int i, int s, int arr[], int n){
+        maxSum = Math.abs(Arrays.stream(arr).sum()) *5;
+        arrSize = arr.length *2;
+        
+        dp = new int[arrSize][maxSum];
+        visit = new boolean[arrSize][maxSum];
+        
+        return SubsetCnt(i, s, arr, n) -1 ;
+    }
 
     // To find the number of subsets with sum equal to 0
     // Since S can be negative, we will maxSum
@@ -49,9 +62,9 @@ class DynamicSum {
     // Driver function
     public static void main(String[] args) {
         //int arr[] = {1,-2,2,-3,5};
-        int arr1[] = {1, -2, 2, -3, 5, 6, 12, 10, -4, -69, 84, 75, -61, 22, 85, 102, -635, 586, 894, -6477, 964, 123, 555, -6412, -5555, 852, -963, -987, -951, -753};
+        int arr1[] = {1, -2, 2, -3, 5, 6, 12, 10, -4, -69, 8, -35, 86, 94, -55, 82, -93, -87, -51, -53};
         int n = arr1.length  ;
 
-        System.out.println(SubsetCnt(0, 0, arr1, n)-1);
+        System.out.println(metodo(0, 0, arr1, n)-1);
     }
 }
