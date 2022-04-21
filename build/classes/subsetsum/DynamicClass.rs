@@ -1,2 +1,0 @@
-DynamicSum
-subsetsum.DynamicSum
