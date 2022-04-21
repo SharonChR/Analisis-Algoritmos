@@ -10,7 +10,7 @@ package subsetsum;
 class DynamicSum {
 
     static int maxSum = 30000;
-    static int arrSize = 15000;
+    static int arrSize = 25000;
 
     // variable to store
     // states of dp
@@ -49,7 +49,7 @@ class DynamicSum {
     // Driver function
     public static void main(String[] args) {
         //int arr[] = {1,-2,2,-3,5};
-        int arr1[] = {3,-10,5,-20};
+        int arr1[] = {1, -2, 2, -3, 5, 6, 12, 10, -4, -69, 84, 75, -61, 22, 85, 102, -635, 586, 894, -6477, 964, 123, 555, -6412, -5555, 852, -963, -987, -951, -753};
         int n = arr1.length  ;
 
         System.out.println(SubsetCnt(0, 0, arr1, n)-1);

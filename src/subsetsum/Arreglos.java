@@ -19,7 +19,7 @@ public class Arreglos {
         int[] arregloAleatorio = new int[n];
         for (int i = 0; i < n; i++) {
             int type = ((int) (Math.random() * (2)) + 1);      // Retorna solo 1 = positivo   o    2 = negativo
-            int value = ((int) (Math.random() * (20)) + 1);    // Retorna el valor en un rango de[-20,20]
+            int value = ((int) (Math.random() * (100)) + 1);    // Retorna el valor en un rango de[-20,20]
             if (type == 1) {
                 arregloAleatorio[i] = value;
             } else {

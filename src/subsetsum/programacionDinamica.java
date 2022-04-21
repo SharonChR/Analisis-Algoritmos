@@ -14,16 +14,21 @@ public class programacionDinamica {
     private int arrSize = 15000;
     // variable to store
     // states of dp
-    private int[][] dp = new int[arrSize][maxSum];
-    private boolean[][] visit = new boolean[arrSize][maxSum];
+    private int[][] dp;
+    private boolean[][] visit;
 
-    public programacionDinamica() {
+    public programacionDinamica() {}
+    
+    public int aplicarMetodoDinamico(int i, int s, int arr[], int n){
+        dp = new int[arrSize][maxSum];
+        visit = new boolean[arrSize][maxSum];
+        return Dinamico(i, s, arr, n);
     }
 
     // To find the number of subsets with sum equal to 0
     // Since S can be negative, we will maxSum
     // to it to make it positive
-    public int aplicarMetodoDinamico(int i, int s, int arr[], int n) {
+    public int Dinamico(int i, int s, int arr[], int n) {
         // Base cases
         if (i == n) {
             if (s == 0) {
@@ -42,8 +47,8 @@ public class programacionDinamica {
         visit[i][s + arrSize] = true;
 
         // Recurrence relation
-        dp[i][s + arrSize] = aplicarMetodoDinamico(i + 1, s + arr[i], arr, n)
-                + aplicarMetodoDinamico(i + 1, s, arr, n);
+        dp[i][s + arrSize] = Dinamico(i + 1, s + arr[i], arr, n)
+                + Dinamico(i + 1, s, arr, n);
 
         // Returning the value
         return dp[i][s + arrSize];
